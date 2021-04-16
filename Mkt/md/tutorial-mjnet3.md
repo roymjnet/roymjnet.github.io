@@ -9,7 +9,6 @@ NTP server dapat diperoleh di situs berikut,
 2. [GOOGLE PUBLIC NTP](https://developers.google.com/time/)
 3. [NIST Internet Time Servers](https://tf.nist.gov/tf-cgi/servers.cgi)
 
-![SNTP Client](./img/sntp-client.jpg "SNTP Client")
 
 ----
 
