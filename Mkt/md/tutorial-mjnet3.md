@@ -1,4 +1,4 @@
-### Persiapan Instalasi
+### Persiapan Instalasi time mikrotik 
 
 #### Setting NTP Server di SNTP Client MikroTik
 
@@ -13,7 +13,7 @@ NTP server dapat diperoleh di situs berikut,
 
 ----
 
-### Instalasi
+### Instalasi Setting SNTP
 
 
 [![](./assets/img/video.png) Video Panduan](https://youtu.be/cVTekV_RoQQ)
@@ -21,9 +21,6 @@ NTP server dapat diperoleh di situs berikut,
 ----
 
 #### Instalasi jaringan via fiber optik"
-
-https://youtu.be/cVTekV_RoQQ
-
 
 
 [![](./assets/img/video.png) Video Panduan](https://youtu.be/cVTekV_RoQQ)
