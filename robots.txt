@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /*?
+Allow: /?mjnet
+Allow: /?mjnet/v3
+Allow: /?mjnet/v3/download
+Allow: /?mjnet/v3/video
+Disallow /md/*.md$
+Disallow /printBT.html
+Disallow /iklan.html
+Disallow /*.txt$
+Disallow /printBT.html
+Disallow /assets/json/*.json$
