@@ -1,6 +1,6 @@
-### Template Hotspot Mikhmon
+### Template Hotspot 
 
-New Template Hotspot Mikhmon base on default hotspot MikroTik v6.47
+New Template Hotspot  base on default hotspot MikroTik v6.47
 
 ----
 
@@ -31,6 +31,5 @@ SessionName : "demo",
 }
 ```
 
-[![](./assets/img/download.png) Download](https://github.com/roymjnet/new-hotspot-01)
 
 [![](./assets/img/book.png) Kumpulan template lama](./?templatehotspot)
