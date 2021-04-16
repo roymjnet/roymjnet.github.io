@@ -19,7 +19,7 @@ NTP server dapat diperoleh di situs berikut,
 
 ----
 
-#### Instalasi jaringan via fiber optik"
+### Instalasi jaringan via fiber optik"
 
 
 [![](./assets/img/video.png) Video Panduan](https://youtu.be/cVTekV_RoQQ)
