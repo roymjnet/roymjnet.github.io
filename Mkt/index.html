@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>Roy| MJNET : Mikrotik script </title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Roy| MJNET : Mikrotik script adalah aplikasi berbasis web untuk mempermudah pengelolaan hotspot MikroTik." />
+		<meta name="keywords" content="mjnet,mikrotik,voucher,routeros,api mikrotik,rtrwnet, rtrw/net,hotspot,mikrotik api" />
+		<meta http-equiv="expires" content="0">
+		<meta name="robots" content="index, follow" />
+		<meta property="og:title" content="Roy| MJNET : Mikrotik script">
+		<meta property="og:description" content="Roy| MJNET : Mikrotik script adalah aplikasi berbasis web untuk mempermudah pengelolaan hotspot MikroTik.">
+		<meta property="og:image" content="https://roymjnet.github.io/img/mjnetv3.png">
+		<meta property="og:image:alt" content="Roy| MJNET : Mikrotik script">
+		<meta property="og:type" content="website">
+	  	<meta property="og:url" content="https://roymjnet.github.io">
+		<!-- jquery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js" integrity="sha256-f6DVw/U4x2+HjgEqw5BZf67Kq/5vudRZuRkljnbF344=" crossorigin="anonymous"></script>
+		<!-- markdown -->
+
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" > -->
+		<link rel="stylesheet" href="./assets/css/md/github-markdown.css?v1" >
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<!-- hightlight -->
+		<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css"> -->
+		<link rel="stylesheet" href="./assets/css/highlight/vs.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+		<!-- iroute -->
+		<script id="iroute" src="./assets/js/jroute.js?v1.8" async></script>
+		<script async src="https://arc.io/widget.min.js#U1PFzJhK"></script>
+		<!-- favicon -->
+		<link rel="icon" href="./assets/img/favicon.ico" />
+
+	    <style>
+	    	body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 40px;
+				background: #E8EAED;
+			content-visibility:auto;
+			}
+			@media (max-width: 750px) {
+			    body {
+			    padding: 0px;
+			    }
+			  }
+			.markdown-body .highlight pre,
+			.markdown-body pre {
+				/*solarized-dark*/
+				/*background-color: #002B36;*/
+
+				/*monokai*/
+				/*background-color: #272822;*/
+			}
+			.markdown-body{
+				background: #fff;
+			}
+			#container{
+				padding: 20px;
+				border-radius: 3px;
+				box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+			}
+			#goTop {
+			  display: none;
+			  position: fixed;
+			  bottom: 20px;
+			  right: 10px;
+			  z-index: 99;
+			  border: none;
+			  outline: none;
+			  color: white;
+			  cursor: pointer;
+			  padding: 2px;
+			  border-radius: 50%;
+			  height: 50px;
+			  width: 50px;
+			  background-color: transparent;
+			  background-image: url('./assets/img/slide-up.png');
+			  background-position:50% 50%;
+    		  background-repeat:no-repeat; 
+			}
+	    </style>
+<style>
+/* --------------------------------------------
+################################################
+# Tools For Mikrotik By Roymjnet.Github.io
+# Date/Time : 14/04/2021, 09:43:14 AM
+# Designer  : Roysul Bilat / Mjnet
+# Version   : v1.0 Beta
+# Site      : http://mjnettv.blogspot.com
+# Sosmed    : https://fb.me/mjnettv
+################################################
+----------------------------------------------- */  
+body {
+background: #111012;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #111012, #a8a8a8);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #111012, #a8a8a8 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+-ms-text-size-adjust: 100%;
+-webkit-text-size-adjust:100%;
+line-height:2.0;
+font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+font-size: 16px;
+word-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6{font-size: 25px; border-bottom:0px solid #ddd; margin-bottom:20px; color:#000;line-height:1.5}
+pre {
+white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+white-space: -pre-wrap; /* Opera */
+white-space: -o-pre-wrap; /* Opera */
+white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+word-wrap: break-word; /* IE 5.5+ */
+}
+b{font-size:17px}
+p {
+padding:0;
+margin:5px 5px 0 17px;
+display:list-item;
+list-style: square;
+}
+.logo {
+padding-top:10px;
+padding-bottom:15px;  
+margin-bottom:0px;
+color: #111;
+text-decoration:none;
+font-size:30px;
+font-weight:bold; 
+border-bottom:0px solid #ccc;
+text-align:center;
+}	
+.logo a{
+color:#111 !important;
+}
+* {
+box-sizing: border-box;
+}
+.content {
+max-width:900px;
+min-width:200px;
+margin:0 auto;
+padding: 20px;
+border-radius: 3px;
+box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+background:#fff;
+}
+/* unvisited link */
+a:link {
+  color: #8E2DE2;
+  text-decoration:none;
+}
+/* visited link */
+a:visited {
+  color: #8E2DE2;
+  text-decoration:none;
+}
+/* mouse over link */
+a:hover {
+  color: #000;
+}
+@media screen and (max-width: 1024px){
+body{
+background: #fff !important;
+padding:10px;  
+}
+.content {
+max-width:100%;
+padding:0;
+border-radius: 3px;
+box-shadow: 0 0 0 0;
+background:#fff;
+}  
+.logo {font-size:28px;}  
+}  
+/* selected link */
+a:active {
+  color: #8E2DE2;
+  text-decoration:none;
+  margin-top:10px !important;
+}
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+/* Non solid icons get a stroke */
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+/* Solid icons get a fill */
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+.resp-sharing-button--email {
+  background-color: #777
+}
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+.resp-sharing-button--hackernews {
+background-color: #8E2DE2
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9; 
+}
+.resp-sharing-button--tumblr {
+  background-color: #35465C;
+  border-color: #35465C;
+}
+.resp-sharing-button--tumblr:hover,
+.resp-sharing-button--tumblr:active {
+  background-color: #222d3c;
+  border-color: #222d3c;
+}
+.resp-sharing-button--email {
+  background-color: #777777;
+  border-color: #777777;
+}
+.resp-sharing-button--email:hover,
+.resp-sharing-button--email:active {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+}
+.resp-sharing-button--pinterest {
+  background-color: #bd081c;
+  border-color: #bd081c;
+}
+.resp-sharing-button--pinterest:hover,
+.resp-sharing-button--pinterest:active {
+  background-color: #8c0615;
+  border-color: #8c0615;
+}
+#CbiJvKRogXqD {
+z-index:99;
+display: none;
+background: #000;
+text-align: center;
+font-weight: bold;
+color: #fff;
+font-size: 4.0vw;
+position: fixed;
+width: 100%;
+height: 100%;
+top:0;
+left:0;
+opacity: 0.7;
+padding:150px;
+}
+</style>
+</head>
+  </head>
+<body id="laksagit">
+  	<div id="container" class="markdown-body">
+  		<div><h1>	
+	<a href="https://roymjnet.github.io"><span style="color:#8E2DE2 !important">RoyMjnet</span>.Github.io</a>
+	<img style="margin-left:10px" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Froymjnet.github.io%2F&count_bg=%23C83D3D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Viewer&edge_flat=false" alt="Hits"/><br>
+			</h1>
+				| <a href="."><strong>ROYMJNET</strong></a> 
+				| <a href="Mkt/mky.html" title="Kumpulan Script Mikrotik"><strong>SCRIPT.MIKROTIK</strong></a>
+				| <a href="./?mjnet/v3/tutorial" title="Video Tutorial "><strong>VIDEO</strong></a> 
+				| <a href="./?blog" title="Catatan Cara "><strong>CARA</strong></a> 
+				| <a href="./?mjnet/v3/voucher" title="Template voucher"><strong>VOUCHER</strong></a> 
+				| <a href="./?new-hotspot" title="Template login page hospot MikoTik"><strong>HOTSPOT</strong></a> 
+				| <a href="mjqr" title="MjQR Web base QR scanner for hospot MikoTik"><strong>MJQR</strong></a> 
+				| <a href="Mkt/md/jasa-setting-mikrotik" title="Jasa Setting MikoTik"><strong>JASA</strong></a> 	
+				|
+</div>		  
+<div class="form-group" style="clear:both;">
+<h4>FREE MIKROTIK ROUTEROS TOOLS</h4>
+<p><a target="_blank"  href="https://roymjnet.github.io/Mkt/mky.html">Complete Mikrotik RouterOS Script Database</a> - Enjoy the most complete script to make it easier for you to learn Mikrotik RouterOS scripts!</p><br>
+<h4>TESTER HTLM </h4>
+<p><a target="_blank"  href="https://roymjnet.github.io/roycode/">Belajar Tester Pembuatan index html </a> - Enjoy the most to make it Happy for you to learn Htlm!</p><br>
+
+<b><span style="font-size:14px;">Share this tool with your friends</span></b><br>
+<!-- Sharingbutton Facebook -->
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Froymjnet.github.io%2Findex.html" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
+    </div>
+  </div>
+</a>
+<!-- Sharingbutton Twitter -->
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=MIKROTIK%20TOOLS%20By%20MJNET%20SECURE&amp;url=https%3A%2F%2Froymjnet.github.io%2Findex.html" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
+    </div>
+  </div>
+</a>
+<!-- Sharingbutton Tumblr -->
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=MIKROTIK%20TOOLS%20By%20MJNET%20SECURE&amp;caption=MIKROTIK%20TOOLS%20By%20MJNET%20SECURE&amp;content=https%3A%2F%2Froymjnet.github.io%2Findex.html&amp;canonicalUrl=https%3A%2F%2Froymjnet.github.io%2Findex.html&amp;shareSource=tumblr_share_button" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M15.492,17.616C11.401,19.544,9.5,17,9.5,14.031 V9.5h-2V8.142c0.549-0.178,1.236-0.435,1.627-0.768c0.393-0.334,0.707-0.733,0.943-1.2c0.238-0.467,0.401-0.954,0.49-1.675H12.5v3h2 v2h-2v3.719c0,2.468,1.484,2.692,2.992,1.701V17.616z"/>
+     </svg>
+    </div>
+  </div>
+</a>
+<!-- Sharingbutton E-Mail -->
+<a class="resp-sharing-button__link" href="mailto:?subject=MIKROTIK%20TOOLS%20By%20MJNET%20SECURE&amp;body=https%3A%2F%2Froymjnet.github.io%2Findex.html" target="_self" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm8 16c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v8z"/><path d="M17.9 8.18c-.2-.2-.5-.24-.72-.07L12 12.38 6.82 8.1c-.22-.16-.53-.13-.7.08s-.15.53.06.7l3.62 2.97-3.57 2.23c-.23.14-.3.45-.15.7.1.14.25.22.42.22.1 0 .18-.02.27-.08l3.85-2.4 1.06.87c.1.04.2.1.32.1s.23-.06.32-.1l1.06-.9 3.86 2.4c.08.06.17.1.26.1.17 0 .33-.1.42-.25.15-.24.08-.55-.15-.7l-3.57-2.22 3.62-2.96c.2-.2.24-.5.07-.72z"/></svg>
+    </div>
+  </div>
+</a>
+<!-- Sharingbutton Pinterest -->
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Froymjnet.github.io%2Findex.html&amp;media=https%3A%2F%2Froymjnet.github.io%2Findex.html&amp;description=MIKROTIK%20TOOLS%20By%20MJNET%20SECURE" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm1.4 15.56c-1 0-1.94-.53-2.25-1.14l-.65 2.52c-.4 1.45-1.57 2.9-1.66 3-.06.1-.2.07-.22-.04-.02-.2-.32-2 .03-3.5l1.18-5s-.3-.6-.3-1.46c0-1.36.8-2.37 1.78-2.37.85 0 1.25.62 1.25 1.37 0 .85-.53 2.1-.8 3.27-.24.98.48 1.78 1.44 1.78 1.73 0 2.9-2.24 2.9-4.9 0-2-1.35-3.5-3.82-3.5-2.8 0-4.53 2.07-4.53 4.4 0 .5.1.9.25 1.23l-1.5.82c-.36-.64-.54-1.43-.54-2.28 0-2.6 2.2-5.74 6.57-5.74 3.5 0 5.82 2.54 5.82 5.27 0 3.6-2 6.3-4.96 6.3z"/></svg>
+    </div>
+  </div>
+</a>
+</div>
+<div id="md_footer"><hr>
+© Roymjnet - <span id="ty"></span>
+  	</div>
+  	<div id="goTop" title="Go to top"></div>
+
+  	<script type="text/javascript">
+	
+  		$("#ty").html(new Date().getFullYear());
+  		window.onscroll = function() {scrollChk()};
+
+		function scrollChk() {
+		  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		    $("#goTop").fadeIn(200);
+		  } else {
+		    $("#goTop").fadeOut(200);
+		  }
+		}
+		$("#goTop").click(function(){
+			$("html, body").animate({ scrollTop: 0 }, 700);
+	        	return false;
+		})
+		
+
+// 		    $.getScript( "https://static.doubleclick.net/instream/ad_status.js", function( data, textStatus, jqxhr ) {
+// 			  console.log( textStatus );
+// 			  console.log( jqxhr.status );
+// 			}); 
+
+
+		
+		
+		//<![CDATA[function ASSetCookie(a,b,c){var d=new Date;d.setDate(d.getDate()+c);var e=escape(b)+(0==c?";path=/":"; expires="+d.toUTCString())+";path=/";document.cookie=a+"="+e}function ASGetCookie(a){var b,c,d,e=document.cookie.split(";");for(b=0;b<e.length;b++)if(c=e[b].substr(0,e[b].indexOf("=")),d=e[b].substr(e[b].indexOf("=")+1),c=c.replace(/^\s+|\s+$/g,""),c==a)return unescape(d)}function ASSetCookieAds(a,b){var c=ASGetCookie(a);void 0!=c&&""!=c?(ASTheCookieInt=parseInt(c)+1,ASSetCookie(a,ASTheCookieInt.toString(),0)):ASSetCookie(a,"1",b)}function ASMaxClick(a,b){var c=ASGetCookie(a);return void 0!=c&&parseInt(c)>=b?!0:!1}jQuery(document).ready(function(a){var b="adsShield",c=7,d=3,e=".adsShield",f=!1;ASMaxClick(b,d)&&a(e).hide("fast"),a(e).bind("mouseover",function(){f=!0}).bind("mouseout",function(){f=!1}),a(window).on("beforeunload",function(){f&&(ASMaxClick(b,d)?a(e).hide("fast"):ASSetCookieAds(b,c))})}); //]]>
+	  </script>
+
+
+  </body>
+</html>
