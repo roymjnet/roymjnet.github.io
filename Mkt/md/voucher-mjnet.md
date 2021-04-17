@@ -7,7 +7,7 @@ Thermal adalah template yang digunakan untuk print satu voucher (tujuan untuk pr
 
 >Penting! Jangan langsung copy paste. Template ini perlu disesuaikan dengan kebutuhan masing-masing. Keterangan ada di template.
 
->Jika sudah yakin baru dimasukkan ke Mikhmon lewat menu Settings-> Template Editor.
+>Jika sudah yakin baru dimasukkan ke menu Settings-> Template Editor.
 ----
 #### Default Color by Price
 ![](./img/voucher/cbp.png) ![](./img/voucher/cbpup.png)
@@ -66,6 +66,6 @@ Thermal adalah template yang digunakan untuk print satu voucher (tujuan untuk pr
 [![](./assets/img/download.png) Download](https://raw.githubusercontent.com/roymjnet/roymjnet.github.io/Master/download/voucher/mks.txt)
 
 
-#### Template Voucher Pihak ke 3
+#### Template Voucher Pihak ke 5
 
 [KevinNet](https://isbernendi.github.io/voucher.html)
