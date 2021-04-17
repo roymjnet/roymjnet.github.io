@@ -4,24 +4,14 @@ Template Voucher Mikhmon
 Mikhmon memiliki 3 jenis template voucher (Default, Thermal dan Small).
 Default atau Small adalah template yang digunakan untuk print lebih dari satu voucher.
 Thermal adalah template yang digunakan untuk print satu voucher (tujuan untuk printer thermal).
-
-
 >Penting! Jangan langsung copy paste. Template ini perlu disesuaikan dengan kebutuhan masing-masing. Keterangan ada di template.
-
 >Jika sudah yakin baru dimasukkan ke Mikhmon lewat menu Settings-> Template Editor.
-
 ----
-
 #### Default Color by Price
-
 ![](./img/voucher/cbp.png) ![](./img/voucher/cbpup.png)
-
 [![](./assets/img/download.png) Download](https://raw.githubusercontent.com/roymjnet/roymjnet.github.io/Master/download/voucher/vdefaultcolorbyprice.txt)
-
 #### Default Detail
-
 ![](./img/voucher/detail.png) ![](./img/voucher/detailup.png)
-
 [![](./assets/img/download.png) Download](https://raw.githubusercontent.com/roymjnet/roymjnet.github.io/Master/download/voucher/vdefaultdetail.txt) [![](./assets/img/download.png) Download BW](https://raw.githubusercontent.com/roymjnet/roymjnet.github.io/Master/download/voucher/vdefaultdetailbw.txt)
 
 <div>
@@ -33,7 +23,6 @@ Thermal adalah template yang digunakan untuk print satu voucher (tujuan untuk pr
 		(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
 </div>
-
 #### Default Elegan
 
 ![](./img/voucher/eleganqr.png) ![](./img/voucher/eleganupqr.png)
