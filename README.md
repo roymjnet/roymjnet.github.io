@@ -1,3 +1,2 @@
 # RoyMjnet.github.io
-website 
-roymjnet.github.io
+https://roymjnet.github.io
