@@ -4,7 +4,7 @@ Allow: /*?
 Allow: /?roymjnet
 Allow: /?roymjnet/blog
 Allow: /?romjnet/v3/download
-Allow: /?tutorial-mjnet3
+Allow: /?Mkt/md/tutorial-mjnet3
 Disallow /md/*.md$
 Disallow /printBT.html
 Disallow /iklan.html
