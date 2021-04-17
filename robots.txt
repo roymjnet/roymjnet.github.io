@@ -1,10 +1,10 @@
 User-agent: *
 Allow: /
 Allow: /*?
-Allow: /?mjnet
-Allow: /?mjnet/v3
-Allow: /?mjnet/v3/download
-Allow: /?mjnet/v3/video
+Allow: /?roymjnet
+Allow: /?roymjnet/blog
+Allow: /?romjnet/v3/download
+Allow: /?Mkt/md/tutorial-mjnet3
 Disallow /md/*.md$
 Disallow /printBT.html
 Disallow /iklan.html
