@@ -3,22 +3,22 @@
 <head>
 <meta charset='utf-8'/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Automated Usage Script without usermanager - MikroTik RouterOS Script</title>
-<meta content='Automated Usage Script without usermanager - MikroTik RouterOS Script DataBase' name='description'/>
-<meta content='mikrotik script, routeros script, script database, script, mikrotik, routeros, router, hotspot, rtrwnet' name='keywords'/>
+<title>Automated Usage Script without usermanager - Mkt RouterOS Script</title>
+<meta content='Automated Usage Script without usermanager - Mkt RouterOS Script DataBase' name='description'/>
+<meta content='Mkt script, routeros script, script database, script, Mkt, routeros, router, hotspot, rtrwnet' name='keywords'/>
 <meta content='index, follow, noodp' name='robots'/>
 <link rel="shortcut icon" href="https://roymjnet.github.io/favicon.ico" type="image/x-icon"> 
-<link rel="stylesheet" href="//roymjnet.github.io/mikrotik/stytes.css">
-<link rel="stylesheet" href="//roymjnet.github.io/mikrotik/highlightjs/styles/github.css">
-<script src="//roymjnet.github.io/mikrotik/highlightjs/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" href="//roymjnet.github.io/Mkt/stytes.css">
+<link rel="stylesheet" href="//roymjnet.github.io/Mkt/highlightjs/styles/github.css">
+<script src="//roymjnet.github.io/Mkt/highlightjs/highlight.pack.js"></script>
+
 </head>  
 <body>
 <div id="hidelink"></div>
-<h1>Automated Usage Script without usermanager - MikroTik RouterOS Script</h1>
+<h1>Automated Usage Script without usermanager - Mkt RouterOS Script</h1>
 <pre>Last Updated: 15th June 2009 Current version: v1.4
-An updated version of this script is available at: MikroTik-RouterOS.com
-If you have any questions you can also email me: admin ( at ) mikrotik-routeros ( dot ) com
+An updated version of this script is available at: Mkt-RouterOS.com
+If you have any questions you can also email me: admin ( at ) Mkt-routeros ( dot ) com
 
 Contents
 1	Summary
@@ -36,13 +36,13 @@ Contents
 
 Summary
 I wrote a usage tracking script based on the original Automated Billing Script
-The way I run it is using a Mikrotik box setup to pass everything through transparently then I generated a Queue per IP address to keep track of the usage. On my test box (A PowerRouter 732) I currently have 3 class C blocks passing through with only 3% cpu (Multi CPU enabled).
+The way I run it is using a Mkt box setup to pass everything through transparently then I generated a Queue per IP address to keep track of the usage. On my test box (A PowerRouter 732) I currently have 3 class C blocks passing through with only 3% cpu (Multi CPU enabled).
 This system is built for download-based billing only and will report the amount of downloads used by an IP address (or group if you setup a queue with multiple IP's) each month. (This could easily be switched around thou)
 If you use the alternate version of the monthend script you can set the scheduler to run overseer every 1hour without having to worry about multiple reports coming through.
 Additional, I've since written a smaller manual script for accounts so they can run this at any time and have the usage reports emailed through (see the manual usage report script)
 
 Todo
-- ability to backup to a file on the mikrotik so it will count both data in the queue currently + data usage saved in the file (in case you lose power to the device or have to restart it at any time) Rethought - now saves downloaded data onto the end of comment, so scripts can also be exported if required. Page now updated to save data in the newly added comment field (I've been using this since v3.24)
+- ability to backup to a file on the Mkt so it will count both data in the queue currently + data usage saved in the file (in case you lose power to the device or have to restart it at any time) Rethought - now saves downloaded data onto the end of comment, so scripts can also be exported if required. Page now updated to save data in the newly added comment field (I've been using this since v3.24)
 - modifying the monthend script further so that it can only be triggered on the last hour of the last day of the month. This means you could then run the usage script hourly to get more frequent updates. This has been done, see original and alternate versions of the Monthend Script See below the script for details on how it works.
 - modify the usage and monthly report scripts to use kbyte variables instead of bytes (this shouldn't be any major issue thou, as the integer variables mikroik have allowed are 64bit, so a number can be as high as 9223372036854775807.
 - allow sending to a client email address AND local support crew. Done: now you can specify a default email address in the usagereport (for sending to your support/accounts people) and the address in the queue becomes the client address to email, if you leave it blank eg: Client!50#!00#0000 instead of Client!50#client@example.com!00#0000 it will just skip sending the report email to the client but still send one to the support/accounts email address
@@ -109,7 +109,7 @@ In previous versions of the script I had the values stored in the name, but now 
 :local bytesdownsaved
 :local bytestotal
 
-#Script based on Automated billing script at http://wiki.mikrotik.com/wiki/AutomatedBilling
+#Script based on Automated billing script at http://wiki.Mkt.com/wiki/AutomatedBilling
 #Details:
 #This script checks all current simple queues and using values stored in the queue comment will allow you keep track of usage by each site
 #The details stored in the queue are broken down and used to determine when a user should be sent a usage warning at 50 75 90 and 100%
@@ -217,7 +217,7 @@ Called by the overseer at the end of the month, this generates reports for Every
 :local bytesdownsaved
 :local bytesdowntotal
 
-#Script based on Automated billing script at http://wiki.mikrotik.com/wiki/AutomatedBilling
+#Script based on Automated billing script at http://wiki.Mkt.com/wiki/AutomatedBilling
 #This version created by Andrew Cox - www.accessplus.com.au
 #v1.4 Updated 15th June 2009
 :log info "------ Begining Monthly Reports -------"
@@ -299,8 +299,8 @@ This script can be run manually at any time to send through the current usage re
 :local combinedtext
 :set combinedtext ""
 
-#Scripts based on Automated billing script at http://wiki.mikrotik.com/wiki/AutomatedBilling
-# This version created by Andrew Cox - www.mikrotik-routeros.com
+#Scripts based on Automated billing script at http://wiki.Mkt.com/wiki/AutomatedBilling
+# This version created by Andrew Cox - www.Mkt-routeros.com
 #v1.4 Updated 15th June 2009
 :log info "------ Begining Manual Usage Reports -------"
 
@@ -356,10 +356,10 @@ Quick trick to generate queues
 would generate queues for 10.0.0.2-10.0.0.254 for you.
 
 note: the queue=default is important, as of v3.12 default-small queues with no child queues will be treated as if there was no queue at all (aka: unmonitored)</code>
-Credit: https://wiki.mikrotik.com/wiki/Automated_Usage_Script_without_usermanager
+Credit: https://wiki.Mkt.com/wiki/Automated_Usage_Script_without_usermanager
 </pre>
 <br>
-<script>if (window.top != window.self){document.getElementById("hidelink").innerHTML = "";} else {document.getElementById("hidelink").innerHTML = "<div class='logo'><span class='logo-left'><a href='https://roymjnet.github.io/mikrotik'><span style='color:#8E2DE2 !important'>BuanaNETPBun</span>.Github.io</a></span><span class='logo-right'><img style='padding-top:12px' src='https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Froymjnet.github.io%2F&count_bg=%23C83D3D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=pageview&edge_flat=false' alt='Hits'/></span><div style='clear: both;'></div></div><div class='header'><span class='header-left'><span style='float:left; margin-right:6px; margin-top:-2px'><a href='https://roymjnet.github.io/mikrotik/'><img src='https://roymjnet.github.io/mikrotik/img/logo.png' alt='Mikrotik Script RouterOS'></a></span><span style='color:#fff;font-weight:bold;font-size:20px;margin-top:-2px;'>MIKROTIK SCRIPT ROUTEROS DATABASE</span></span><div style='clear: both;'></div></div>"}</script>
+<script>if (window.top != window.self){document.getElementById("hidelink").innerHTML = "";} else {document.getElementById("hidelink").innerHTML = "<div class='logo'><span class='logo-left'><a href='https://roymjnet.github.io/Mkt/mky.html'><span style='color:#8E2DE2 !important'>RoyMjnet</span>.Github.io</a></span><span class='logo-right'><img style='padding-top:12px' src='https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Froymjnet.github.io%2F&count_bg=%23C83D3D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=pageview&edge_flat=false' alt='Hits'/></span><div style='clear: both;'></div></div><div class='header'><span class='header-left'><span style='float:left; margin-right:6px; margin-top:-2px'><a href='https://roymjnet.github.io/Mkt/'><img src='https://roymjnet.github.io/Mkt/img/logo.png' alt='Mkt Script RouterOS'></a></span><span style='color:#fff;font-weight:bold;font-size:20px;margin-top:-2px;'>Mkt SCRIPT ROUTEROS DATABASE</span></span><div style='clear: both;'></div></div>"}</script>
 <br>
 </body>
 </html>
